@@ -1,0 +1,11 @@
+README.md
+setup.py
+src/dextra_big_data_python.egg-info/PKG-INFO
+src/dextra_big_data_python.egg-info/SOURCES.txt
+src/dextra_big_data_python.egg-info/dependency_links.txt
+src/dextra_big_data_python.egg-info/top_level.txt
+src/in_memory_db/__init__.py
+src/in_memory_db/in_memory_db.py
+src/in_memory_db/in_memory_db_lite.py
+src/irr/__init__.py
+src/irr/irr.py

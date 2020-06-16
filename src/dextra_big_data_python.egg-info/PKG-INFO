@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: dextra-big-data-python
+Version: 1.0.0
+Summary: Application to Resolve Dextra's Programming Challange.
+Home-page: UNKNOWN
+Author: Cícero Augusto de Lara Pahins
+Author-email: cicerolp@gmail.com
+License: UNKNOWN
+Description: # Skills Problem Solving using Python
+        
+        This is a test to check your skills in Problem Solving, Basic Mathematical knowledge as well as Python programing language
+        
+        # Prerequisites
+        - [Python >= 3.7](https://www.python.org/downloads/)
+        - [Pipenv](https://pipenv.pypa.io/en/latest/) (_used to consistently create and manage the virtualenv_)
+        
+        # Project Structure Overview
+        ```
+        - setup.py
+        + notebook (jupyter notebook with initial algorithm design)
+          └───| - irr-with-numpy.ipynb
+        + src (main source code)
+          └───| + in_memory_db
+              | + irr
+              | - dextra.py
+        + tests (unit tests using pytest framework)
+          └───| + in_memory_db
+              | + irr
+              | - test_common.py
+        ```
+        
+        # How to Run Main Application
+        
+        1. Install Pipenv:
+            - `pip install pipenv`
+        
+        2. Hit `run.py`:
+            - `pipenv run python src/run.py`
+        
+        ## Arguments
+        
+        | Option | Description |
+        |--------|-------------|
+        | -h     | Provide useful help messages |
+        | -d     | Set 'D' day (expected format: `dd/mm/yyyy`, default: when empty, is defined as the previous day from first cash flow) |
+        
+        # How to Run Unit Tests (using PyTest framework)
+        
+        1. Install Pipenv:
+            - `pip install pipenv`
+        
+        2. Run the script:
+            - `./scripts/run_tests.sh`
+        
+        ## Code Coverage Report
+        
+        Please refer to [this link](htmlcov/index.html). (alternatively, when running the unit tests the coverage is also reported)
+        
+        # How to Build the Docker Image
+        
+        1. Run the script:
+            - `./scripts/build.sh`
+        
+        - By default, the script will generate an image tagged as `dextra/big-data-python:latest`.
+        
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown

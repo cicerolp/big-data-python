@@ -2,33 +2,72 @@
 
 This is a test to check your skills in Problem Solving, Basic Mathematical knowledge as well as Python programing language
 
-# Problem to Solve.
+# Prerequisites
+- [Python >= 3.7](https://www.python.org/downloads/)
+- [Pipenv](https://pipenv.pypa.io/en/latest/) (_used to consistently create and manage the virtualenv_)
+- [Docker](https://docs.docker.com/get-docker/)
 
-You have the opportunity to make a investment buying some financial assets with discount.
-You will pay for those assets R$ 300.000,00 ( Three hundred thousand reais) in the day D.
-This invest contain a lot of assets and you want to know what is the internal rate of the investiment.
+# Project Structure Overview
+```
+- setup.py
++ notebook (jupyter notebook with initial algorithm design)
+  └───| - irr-with-numpy.ipynb
++ src (main source code)
+  └───| + in_memory_db
+      | + irr
+      | - dextra.py
++ tests (unit tests using pytest framework)
+  └───| + in_memory_db
+      | + irr
+      | - test_common.py
+```
 
-Besides calcutate the internal rate of investiment you want to compare wheter this investment is better than a Selic rate.
+# How to Run Main Application
 
-# You have to:
-Understand the CSV file and how its is relateded with the concepts of internal rate of investiment in irregular cash flow;
+1. Install Pipenv:
+    - `pip install pipenv`
 
-# Proposed exercise
-Create an Python application that performance the following tasks:
+2. Hit `run.py`:
+    - `pipenv run python src/run.py`
 
-- Read an CSV file with the assets;
+## Arguments
 
-- Calculate the IRR(You must create your own algorithm (don't use any python mathematical function for that) we want to test your logical thinking here
+| Option | Description |
+|--------|-------------|
+| -h     | Provide useful help messages |
+| -d     | Set 'D' day (expected format: `dd/mm/yyyy`, default: when empty, is defined as the previous day from first cash flow) |
 
-- Consume a public web service that return the Selic rate of the day;
+# How to Run Unit Tests (using PyTest framework)
 
-- Show the IRR calculated and the Selic rate in console;
+1. Install Pipenv:
+    - `pip install pipenv`
 
-- Store the information of the CSV file, the calculated IRR and Selic rate in a in memory database - Feel free to use structure or framework you like.
+2. Run the script:
+    - `./scripts/run_tests.sh`
 
-- Create a Docker image with the application ready to use;
+## Code Coverage Report
 
-# Unit tests
-- Create unit tests with 50% code coverage
+Please refer to [this link](htmlcov/index.html). (alternatively, when running the unit tests the coverage is also reported)
 
+- Code Coverage: *84%*
 
+- Report:
+
+    | Name |                                    Stmts |  Miss  | Cover   | Missing           |
+    | --------------------------------------- |------ |------- |-------- |------------------ |
+    | src/__init__.py                         | 0     | 0      | 100%    |                   |
+    | src/dextra.py                           | 65    | 3      | 95%     | 91, 119-120       |
+    | src/in_memory_db/__init__.py            | 3     | 0      | 100%    |                   |
+    | src/in_memory_db/in_memory_db.py        | 14    | 5      | 64%     | 9, 13, 17, 21, 25 |
+    | src/in_memory_db/in_memory_db_lite.py   | 41    | 3      | 93%     | 40, 49, 58        |
+    | src/irr/__init__.py                     | 2     | 0      | 100%    |                   |
+    | src/irr/irr.py                          | 30    | 2      | 93%     | 62, 75            |
+    | src/run.py                              | 15    | 15     | 0%      | 3-25              |
+    | *TOTAL*                                 | *170* | *28*   | *84%*   |                   |
+
+# How to Build the Docker Image
+
+1. Run the script (refer to arguments in the header):
+    - `./scripts/build.sh`
+
+- By default, the script will generate an image tagged as `dextra/big-data-python:latest`.
